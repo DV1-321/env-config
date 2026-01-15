@@ -1,0 +1,14 @@
+name: AI Agent CI/CD
+on:
+  push:
+    paths: ['ai-agent/**']
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and Push to ACR
+        run: |
+          docker build -t acrpipelinedemo.azurecr.io/ai-agent:latest ./ai-agent/src/
+          # Registry matches your deployment.yml pattern

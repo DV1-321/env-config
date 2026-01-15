@@ -1,0 +1,11 @@
+langchain-groq
+langgraph
+fastapi
+uvicorn
+PyGithub
+azure-devops
+requests
+kubernetes
+python-dotenv
+pydantic
+faiss-cpu
