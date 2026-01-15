@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -9,18 +10,24 @@ spec:
         - name: demo-app
           livenessProbe:
             httpGet:
-              path: /healthz
+              path: /
               port: 3000
             initialDelaySeconds: 10
             periodSeconds: 10
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
 
           readinessProbe:
             httpGet:
-              path: /ready
+              path: /
               port: 3000
             initialDelaySeconds: 5
             periodSeconds: 5
-
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
+          
           resources:
             requests:
               cpu: 100m
