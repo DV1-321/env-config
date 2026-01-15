@@ -11,3 +11,7 @@ class Query(BaseModel):
 async def ask_agent(query: Query):
     result = run_diagnostic(query.prompt)
     return {"answer": result["messages"][-1].content}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("src.main:app", host="127.0.0.1", port=8000, reload=True)

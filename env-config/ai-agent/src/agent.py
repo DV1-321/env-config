@@ -8,7 +8,7 @@ from src.tools.docsearch import docsearch_tool
 
 # Initialize the Groq LLM (Llama 3 70B is ideal for DevOps logic)
 llm = ChatGroq(
-    model="llama3-70b-8192",
+    model="llama-3.3-70b-versatile", # Current state-of-the-art on Groq
     temperature=0,
     api_key=os.getenv("GROQ_API_KEY")
 )
